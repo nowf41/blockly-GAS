@@ -32,6 +32,15 @@ ws.addChangeListener((e) => {
   save(ws);
 });
 
+document.querySelector('#project').addEventListener('input', () => {
+  try {
+  save(ws);
+  load(ws, document.querySelector('#project').value ?? 'mainWorkspace');
+  } catch(e) {
+    alert(e);
+  }
+})
+
 ws.addChangeListener(e => {
   if (
     e.isUiEvent ||
